@@ -3,7 +3,6 @@ const router = express.Router();
 const cloudinary = require("cloudinary").v2;
 
 const Offer = require("../models/Offer");
-const User = require("../models/User");
 const isAuthenticated = require("../middlewares/isAuthenticated");
 
 // fonction include
@@ -19,38 +18,58 @@ router.post("/offer/publish", isAuthenticated, async (req, res) => {
   console.log("body: ", req.fields);
   console.log("files: ", req.files);
   try {
-    const pictureToUpload = req.files.picture.path;
     const { title, description, price, condition, city, brand, size, color } =
       req.fields;
-    const newOffer = new Offer({
-      product_name: title,
-      product_description: description,
-      product_price: price,
-      product_details: [
-        {
-          MARQUE: brand,
-        },
-        {
-          TAILLE: size,
-        },
-        {
-          ÉTAT: condition,
-        },
-        {
-          COULEUR: color,
-        },
-        {
-          EMPLACEMENT: city,
-        },
-      ],
-      owner: req.user,
-    });
-    const pictureResult = await cloudinary.uploader.upload(pictureToUpload, {
-      folder: `/vinted/offers/${newOffer._id}`,
-    });
-    newOffer.product_image = pictureResult;
-    await newOffer.save();
-    res.status(200).json(newOffer);
+    if (price && description && title) {
+      const newOffer = new Offer({
+        product_name: title,
+        product_description: description,
+        product_price: price,
+        product_details: [
+          {
+            MARQUE: brand,
+          },
+          {
+            TAILLE: size,
+          },
+          {
+            ÉTAT: condition,
+          },
+          {
+            COULEUR: color,
+          },
+          {
+            EMPLACEMENT: city,
+          },
+        ],
+        owner: req.user,
+      });
+      let promises;
+      const fileKeys = Object.keys(req.files);
+      if (fileKeys.length !== 0) {
+        promises = fileKeys.map(async (fileKey) => {
+          try {
+            const file = req.files[fileKey];
+            const result = await cloudinary.uploader.upload(file.path, {
+              folder: `/vinted/offers/${newOffer._id}`,
+            });
+            return result;
+          } catch (error) {
+            return res.status(400).json({ message: error.message });
+          }
+        });
+      }
+      const pix = await Promise.all(promises);
+      newOffer.product_image = pix;
+      await newOffer.save();
+      res.status(200).json(newOffer);
+    } else {
+      res
+        .status(400)
+        .json({
+          message: "You must specify a title, a description and a price",
+        });
+    }
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
