@@ -134,90 +134,46 @@ router.get("/offers", async (req, res) => {
   console.log("route: /offers");
   console.log(req.query);
   try {
-    // const numberToDisplay = 10;
     let { title, priceMin, priceMax, sort, page, limit } = req.query;
-
     const filter = {};
     if (title) {
       filter.product_name = new RegExp(title, "i");
     }
-
     if (priceMax) {
-      filter.product_price.$lte = priceMax;
-      if (priceMin) {
-        filter.product_price.$gte = priceMin;
-      } else if (priceMin) {
-        filter.product_price = { $gte: priceMin };
+      filter.product_price = { $lte: Number(priceMax) };
+    }
+    if (priceMin) {
+      if (filter.product_price) {
+        filter.product_price.$gte = Number(priceMin);
+      } else {
+        filter.product_price = { $gte: Number(priceMin) };
       }
     }
-
     const sortFilter = {};
-
     if (sort === "price-desc") {
       sortFilter.product_price = -1;
     } else if (sort === "price-asc") {
       sortFilter.product_price = 1;
     }
-
     if (!page) {
       page = 1;
     } else if (page < 1) {
       page = 1;
     }
-
     if (!limit) {
       limit = 10;
     }
-
     const offers = await Offer.find(filter)
       .sort(sortFilter)
       .limit(limit)
       .skip((Number(page) - 1) * limit)
-      .select("product_name product_price");
+      .populate("owner", "account");
+    // .select("product_name product_price");
     const count = await Offer.countDocuments(filter);
-    offers.unshift(count);
-
-    // let offers = await Offer.find();
-    // priceMin = Number(priceMin);
-    // priceMax = Number(priceMax);
-    // if (!page) {
-    //   page = 1;
-    // }
-    // if (!priceMin) {
-    //   priceMin = 0;
-    // }
-    // if (!priceMax) {
-    //   priceMax = offers
-    //     .map((element) => element.product_price)
-    //     .sort((a, b) => a - b)
-    //     .pop();
-    // }
-    // const filter = {
-    //   product_name: new RegExp(title, "i"),
-    //   product_price: { $gte: priceMin, $lte: priceMax },
-    // };
-    // if (sort) {
-    //   if (sort === "price-desc") {
-    //     sort = -1;
-    //   } else {
-    //     sort = 1;
-    //   }
-    //   offers = await Offer.find(filter)
-    //     .sort({ product_price: sort })
-    //     .limit(numberToDisplay)
-    //     .skip((Number(page) - 1) * numberToDisplay)
-    //     .select("product_name product_price");
-    //   const count = await Offer.countDocuments(filter);
-    //   offers.unshift(count);
-    // } else {
-    //   offers = await Offer.find(filter)
-    //     .limit(numberToDisplay)
-    //     .skip((Number(page) - 1) * numberToDisplay)
-    //     .select("product_name product_price");
-    //   const count = await Offer.countDocuments(filter);
-    //   offers.unshift(count);
-    // }
-    res.status(200).json(offers);
+    res.status(200).json({
+      count: count,
+      offers: offers,
+    });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }

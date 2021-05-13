@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const formidable = require("express-formidable");
 const cloudinary = require("cloudinary").v2;
+require("dotenv").config();
 
 const app = express();
 app.use(formidable());
