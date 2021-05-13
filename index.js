@@ -8,7 +8,7 @@ app.use(formidable());
 
 // connexion DB + cloudinar
 
-mongoose.connect("mongodb://localhost/vinted", {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
@@ -33,6 +33,6 @@ app.all("*", (req, res) => {
   res.status(404).json({ message: "Page not found" });
 });
 
-app.listen(process.env.MONGODB_URI, () => {
+app.listen(process.env.PORT, () => {
   console.log("Server has started");
 });
