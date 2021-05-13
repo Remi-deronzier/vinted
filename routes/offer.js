@@ -38,10 +38,9 @@ router.post("/offer/publish", isAuthenticated, async (req, res) => {
         ],
         owner: req.user,
       });
-      let promises;
       const fileKeys = Object.keys(req.files);
       if (fileKeys.length !== 0) {
-        promises = fileKeys.map(async (fileKey) => {
+        const promises = fileKeys.map(async (fileKey) => {
           try {
             const file = req.files[fileKey];
             const result = await cloudinary.uploader.upload(file.path, {
@@ -52,9 +51,9 @@ router.post("/offer/publish", isAuthenticated, async (req, res) => {
             return res.status(400).json({ message: error.message });
           }
         });
+        const pix = await Promise.all(promises);
+        newOffer.product_image = pix;
       }
-      const pix = await Promise.all(promises);
-      newOffer.product_image = pix;
       await newOffer.save();
       res.status(200).json(newOffer);
     } else {
@@ -71,19 +70,30 @@ router.post("/offer/publish", isAuthenticated, async (req, res) => {
 
 router.put("/offer/update", isAuthenticated, async (req, res) => {
   console.log("route: offer/update");
-  console.log(req.fields);
-  console.log(req.files);
+  console.log("fields: ", req.fields);
+  console.log("files: ", req.files);
   try {
     const offer = await Offer.findById(req.fields.id);
     const keys = Object.keys(req.fields);
-    let newPicture;
-    if (req.files.picture) {
-      await cloudinary.api.delete_resources([offer.product_image.public_id]);
-      newPicture = await cloudinary.uploader.upload(req.files.picture.path, {
-        folder: `/vinted/offers/${offer._id}`,
-      });
+    const regex = new RegExp("picture-to-delete");
+    let picturesToDelete = [].concat(
+      keys
+        .filter((element) => regex.test(element))
+        .map((element) => req.fields[element])
+    );
+    if (picturesToDelete.length !== 0) {
+      await cloudinary.api.delete_resources(picturesToDelete); // delete the pictures whose body parameter is of type "picture-to-delete"
     }
-    // console.log(keys);
+    const newPictures = [].concat(
+      offer.product_image
+        .reduce((arr, element, index) => {
+          if (picturesToDelete.indexOf(element.public_id) === -1) {
+            arr.push(index);
+          }
+          return arr;
+        }, [])
+        .map((element) => offer.product_image[element])
+    ); // create a new array of the pictures that are not deleted
     const offerUpdated = keys.reduce((obj, element) => {
       switch (element) {
         case "title":
@@ -110,13 +120,27 @@ router.put("/offer/update", isAuthenticated, async (req, res) => {
         case "color":
           obj.product_details[3].COULEUR = req.fields.color;
           break;
-        case "picture":
-          obj.product_image = newPicture;
-          break;
       }
       return obj;
     }, offer);
     offerUpdated.markModified("product_details"); // update the array in the DBS
+    const filesKeys = Object.keys(req.files);
+    if (filesKeys.length !== 0) {
+      const promises = filesKeys.map(async (fileKey) => {
+        try {
+          const file = req.files[fileKey];
+          const result = await cloudinary.uploader.upload(file.path, {
+            folder: `/vinted/offers/${offer._id}`,
+          });
+          return result;
+        } catch (error) {
+          res.status(400).json({ message: error.message });
+        }
+      });
+      const pix = await Promise.all(promises);
+      newPictures.push(...pix);
+    }
+    offerUpdated.product_image = newPictures; // update cloudinary and the DB with the new pictures given in parameters
     await offerUpdated.save();
     res.status(200).json({ message: "Offer successfully updated" });
   } catch (error) {
