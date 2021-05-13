@@ -6,7 +6,7 @@ const cloudinary = require("cloudinary").v2;
 const app = express();
 app.use(formidable());
 
-// connexion DB + cloudinar
+// connexion DB + cloudinary
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
