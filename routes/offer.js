@@ -5,12 +5,6 @@ const cloudinary = require("cloudinary").v2;
 const Offer = require("../models/Offer");
 const isAuthenticated = require("../middlewares/isAuthenticated");
 
-// fonction include
-
-const arrayInclude = (array1, array2) => {
-  return array1.filter((element) => array2.indexOf(element) !== -1);
-};
-
 // Create an announcement
 
 router.post("/offer/publish", isAuthenticated, async (req, res) => {
@@ -64,11 +58,9 @@ router.post("/offer/publish", isAuthenticated, async (req, res) => {
       await newOffer.save();
       res.status(200).json(newOffer);
     } else {
-      res
-        .status(400)
-        .json({
-          message: "You must specify a title, a description and a price",
-        });
+      res.status(400).json({
+        message: "You must specify a title, a description and a price",
+      });
     }
   } catch (error) {
     res.status(400).json({ message: error.message });
