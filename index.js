@@ -3,9 +3,11 @@ const mongoose = require("mongoose");
 const formidable = require("express-formidable");
 const cloudinary = require("cloudinary").v2;
 require("dotenv").config();
+const cors = require("cors");
 
 const app = express();
 app.use(formidable());
+app.use(cors());
 
 // connexion DB + cloudinary
 
