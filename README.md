@@ -58,34 +58,8 @@ If everything works correctly, you should see this:
   password |string | azerty
   picture | image file| my-picture.png 
   
-  ```js
-  {
-  "email": "remi@example.com",
-  "username": "Remi",
-  "phone": "0606060606",
-  "password": "azerty"
-}
-
-  ```
-  response example:
+* request and response example:
   
-  ```js
-  {
-  "email": "remi@example.com",
-  "username": "Remi",
-  "phone": "0606060606",
-  "password": "azerty"
-}
-
-  ```
-
-
-
-
-
-
-
-
-
+  ![signup](https://user-images.githubusercontent.com/49198371/119231193-d6611900-bb1f-11eb-8df6-bfff453dc238.png)
 
 
