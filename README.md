@@ -255,52 +255,52 @@ If everything works correctly, you should see this:
 * response example:
 
   ```js
-{
-    "count": 3,
-    "offers": [
-        {
-            "product_details": [
-                {
-                    "MARQUE": "H&M"
-                },
-                {
-                    "TAILLE": "XL"
-                },
-                {
-                    "ÉTAT": "Neuf"
-                },
-                {
-                    "COULEUR": "bordeau"
-                },
-                {
-                    "EMPLACEMENT": "Nice"
-                }
-            ],
-            "_id": "6097e37cd275dc0a70a1b092",
-            "product_name": "chemise hawaïenne feuille",
-            "product_description": "Chemise manches courtes coupe regular. Son imprimé feuillage est tendance et facilement associable à un jean ou un bermuda. On aime sa légèreté et sa douceur grâce à sa matière viscose. Elle détient un col requin",
-            "product_price": 37,
-            "owner": {
-                "account": {
-                    "username": "brice",
-                    "phone": "0687675434"
-                },
-                "_id": "609319aa51d49813a82f6bad"
-            },
-            "product_image": {
-                "asset_id": "5f50a28a47f215ec07ff50991b0890ff",
-                // ...
-            },
-            "__v": 0
-        },
-        {
-            // ...
-        },
-        {
-            // ...
-        }
-    ]
-}
+  {
+      "count": 3,
+      "offers": [
+          {
+              "product_details": [
+                  {
+                      "MARQUE": "H&M"
+                  },
+                  {
+                      "TAILLE": "XL"
+                  },
+                  {
+                      "ÉTAT": "Neuf"
+                  },
+                  {
+                      "COULEUR": "bordeau"
+                  },
+                  {
+                      "EMPLACEMENT": "Nice"
+                  }
+              ],
+              "_id": "6097e37cd275dc0a70a1b092",
+              "product_name": "chemise hawaïenne feuille",
+              "product_description": "Chemise manches courtes coupe regular. Son imprimé feuillage est tendance et facilement associable à un jean ou un bermuda. On aime sa légèreté et sa douceur grâce à sa matière viscose. Elle détient un col requin",
+              "product_price": 37,
+              "owner": {
+                  "account": {
+                      "username": "brice",
+                      "phone": "0687675434"
+                  },
+                  "_id": "609319aa51d49813a82f6bad"
+              },
+              "product_image": {
+                  "asset_id": "5f50a28a47f215ec07ff50991b0890ff",
+                  // ...
+              },
+              "__v": 0
+          },
+          {
+              // ...
+          },
+          {
+              // ...
+          }
+      ]
+  }
   ```
 
 
