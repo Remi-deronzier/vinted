@@ -14,7 +14,10 @@ Before you begin, ensure you have met the following requirements:
 
 ## Installing Vinted API exercise
 
-
+To install Vinted API exercise, follow these steps:
+1. Download the code
+![download-code](https://user-images.githubusercontent.com/49198371/119229498-a6624780-bb18-11eb-82ba-48008a112c83.png)
+2. 
 
 
 
