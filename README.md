@@ -75,4 +75,32 @@ If everything works correctly, you should see this:
   
   ![login](https://user-images.githubusercontent.com/49198371/119231337-b1b97100-bb20-11eb-9ce1-da3330c00784.png)
 
+#### Offer routes
+##### create-an-offer route
+* URL: `http://localhost:<your-port>/offer/publish`
+* Headers: Authorization Bearer Token
+* request parameters:
+  
+  Parameter name | Type |  Value example
+  ---------------|--------------- | ---------
+  title | string | Polo manche courte
+  description | string | Polo manche courte confecrtionné dans une belle maille couleur rouge
+  price | string | 28
+  condition | string | Peu utilisé
+  city | string| Paris
+  brand | string | H&M
+  size | string | M
+  color | string | rouge
+  picture1 | picture file | my-first-picture.png
+  picture2 | picture file | my-second-picture.png
+  
+  In this version, it is possible to upload as many pictures as wanted.
+  
+  ⚠️ Do not forget to add a Bearer Token in your request:
+  ![bearer-token](https://user-images.githubusercontent.com/49198371/119231767-d9113d80-bb22-11eb-8687-85d52b8a7231.png)
+
+  
+* request and response example:
+  
+
 
