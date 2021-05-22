@@ -6,6 +6,18 @@ This little project was made during my web and mobile developer training with [L
 
 ## Prerequisties
 
+Before you begin, ensure you have met the following requirements:
+* You have installed the latest version of `node.js`, `MongoDB` and you have a [Cloudinary](https://cloudinary.com/) account 
+* You have a `Windowd/Linux/Mac` machine.
+
+*Option : you can install [Postman](https://www.postman.com/) to easily make requests.*
+
+## Installing Vinted API exercise
+
+
+
+
+
 
 
 
