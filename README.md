@@ -46,9 +46,38 @@ If everything works correctly, you should see this:
 
 ### Route details
 #### User routes
-##### Signup
+##### Signup route
+* URL: http://localhost:<your-port>/user/signup
+* request parameters:
+  
+  Parameter name | Type |  Value example
+  ---------------|--------------- | ---------
+  email | string | remi@example.com
+  username | string | Remi
+  phone | string | 0606060606
+  password |string | azerty
+  picture | image file| my-picture.png 
+  
+  ```js
+  {
+  "email": "remi@example.com",
+  "username": "Remi",
+  "phone": "0606060606",
+  "password": "azerty"
+}
 
+  ```
+  response example:
+  
+  ```js
+  {
+  "email": "remi@example.com",
+  "username": "Remi",
+  "phone": "0606060606",
+  "password": "azerty"
+}
 
+  ```
 
 
 
