@@ -302,5 +302,61 @@ If everything works correctly, you should see this:
       ]
   }
   ```
+  
+##### Read-one-offer route
+* URL: `http://localhost:<your-port>/offer/:id`
+* Method HTTP: GET
+* Goal: Read one specific offer
+* request parameters:
+  
+  Key name | Parameter Type | Value type |  Value example 
+  ---------------|--------------- | --------- | ------
+  id |  params | `MongoDB` ObjectId of the offer you want to read | 6097d297358ed95c0cc17dc1
+  
+  **NB:**
+  * **If you don't specify an `id`, all the offers will be send back**
+
+* request example:
+  
+  ![example-request-read-offer](https://user-images.githubusercontent.com/49198371/119235735-46799a00-bb34-11eb-95e3-27cecf76a60c.png)
+  
+* response example:
+
+  ```js
+  {
+    "product_details": [
+        {
+            "MARQUE": "Nike"
+        },
+        {
+            "TAILLE": "44"
+        },
+        {
+            "ÉTAT": "Mauvais état"
+        },
+        {
+            "COULEUR": "blue"
+        },
+        {
+            "EMPLACEMENT": "Paris"
+        }
+    ],
+    "_id": "6097d297358ed95c0cc17dc1",
+    "product_name": "chaussure route de VTT",
+    "product_price": 300,
+    "owner": {
+        "account": {
+            "username": "brice",
+            "phone": "0687675434"
+        },
+        "_id": "609319aa51d49813a82f6bad"
+    },
+    "product_image": {
+        "asset_id": "400a946848617fb4b2290a83f39f7c69",
+        // ...
+    },
+    "__v": 1
+  }
+  ```
 
 
