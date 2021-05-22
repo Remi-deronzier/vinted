@@ -242,8 +242,8 @@ If everything works correctly, you should see this:
   Key name | Parameter type | Value type |  Value example | Effect
   ---------------|--------------- | --------- | ------ | -----
   title |  query | string | chemise | filters the offers according to their title: only the offers of which the title match with this parameter will be send back
-  priceMin |  query | number | 20 | filters the offers according to their price: only the offers of which the price is greater or equal than priceMin will be send back
-  priceMax |  query | number | 100  | filters the offers according to their price: only the offers of which the price is lower or equal than priceMax will be send back
+  priceMin |  query | number | 20 | filters the offers according to their price: only the offers of which the price is greater or equal to priceMin will be send back
+  priceMax |  query | number | 100  | filters the offers according to their price: only the offers of which the price is lower or equal to priceMax will be send back
   page |  query | number | 1  | sends back only the offers which correspond to the number of the page specified
   limit |  query | number | 8 | enables to specify the number of offers which can be displayed on a single page
   sort |  query | string | `price-desc` OR `price-asc` | enables to sort the offers in ascending order (`price-asc`) or in descending order (`price-desc`) according to their price
