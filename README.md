@@ -98,9 +98,9 @@ If everything works correctly, you should see this:
   picture2 | picture file | my-second-picture.png
   
   In this version, it is possible to upload as many pictures as wanted. 
-  **NB:
-  * You can name the image variables as you please
-  * You must specify the following parameters: price, description and title**
+  **NB:**
+  * **You can name the image variables as you please**
+  * **You must specify the following parameters: price, description and title**
   
   ⚠️ Do not forget to add a Bearer Token in your request:
   
@@ -183,9 +183,10 @@ If everything works correctly, you should see this:
   id | Mongodb ObjectId of the offer you want to update | 60a92672bbc1c248b41534c4
   
   In this version, it is possible to upload as many pictures as wanted. 
-  **NB:
-  * You can name the image variables you want to add as you please
-  * You have to name the image variables you want to delete as follow: `picture-to-delete${a number}`**
+  **NB:**
+  * **You can name the image variables you want to add as you please**
+  * **You have to name the image variables you want to delete as follow: `picture-to-delete${a number}`**
+  * **You can specify as many parameters as you please (ie none or all). Only the `id` parameter is mandatory**
   
   ⚠️ Do not forget to add a Bearer Token in your request (*see approach above*).
   
