@@ -233,4 +233,74 @@ If everything works correctly, you should see this:
    }
   ```
 
+##### Filter-offers route
+* URL: `http://localhost:<your-port>/offers`
+* Method HTTP: GET
+* Goal: Filter the offers according to different parameters. Send back the number `count` of offers that match input parameters
+* request parameters:
+  
+  Key name | Parameter Type | Value type |  Value example | Effect
+  ---------------|--------------- | --------- | ------ | -----
+  title |  query | string | chemise | filters the offers according to their title: only the offers of which the title match with this parameter will be send back
+  priceMin |  query | number | 20 | filters the offers according to their price: only the offers of which the price is greater or equal than priceMin will be send back
+  priceMax |  query | number | 100  | filters the offers according to their price: only the offers of which the price is lower or equal than priceMax will be send back
+  page |  query | number | 1  | sends back only the offers which correspond to the number of the page specified
+  limit |  query | number | 8 | enables to specify the number of offers which can be displayed on a single page
+  sort |  query | string | `price-desc` OR `price-asc` | enables to sort the offers in ascending order (`price-asc`) or in descending order (`price-desc`) according to their price
+    
+* request example:
+  
+  ![example-request-filter-offer](https://user-images.githubusercontent.com/49198371/119235452-ef26fa00-bb32-11eb-923d-a80b3c7ab5c6.png)
+  
+* response example:
+
+  ```js
+{
+    "count": 3,
+    "offers": [
+        {
+            "product_details": [
+                {
+                    "MARQUE": "H&M"
+                },
+                {
+                    "TAILLE": "XL"
+                },
+                {
+                    "ÉTAT": "Neuf"
+                },
+                {
+                    "COULEUR": "bordeau"
+                },
+                {
+                    "EMPLACEMENT": "Nice"
+                }
+            ],
+            "_id": "6097e37cd275dc0a70a1b092",
+            "product_name": "chemise hawaïenne feuille",
+            "product_description": "Chemise manches courtes coupe regular. Son imprimé feuillage est tendance et facilement associable à un jean ou un bermuda. On aime sa légèreté et sa douceur grâce à sa matière viscose. Elle détient un col requin",
+            "product_price": 37,
+            "owner": {
+                "account": {
+                    "username": "brice",
+                    "phone": "0687675434"
+                },
+                "_id": "609319aa51d49813a82f6bad"
+            },
+            "product_image": {
+                "asset_id": "5f50a28a47f215ec07ff50991b0890ff",
+                // ...
+            },
+            "__v": 0
+        },
+        {
+            // ...
+        },
+        {
+            // ...
+        }
+    ]
+}
+  ```
+
 
