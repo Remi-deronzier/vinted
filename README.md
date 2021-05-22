@@ -101,106 +101,58 @@ If everything works correctly, you should see this:
   ![bearer-token](https://user-images.githubusercontent.com/49198371/119231767-d9113d80-bb22-11eb-8687-85d52b8a7231.png)
 
 * request example:
-
-![example-request-create-offer](https://user-images.githubusercontent.com/49198371/119232371-5938a280-bb25-11eb-82cf-c7a68e5c20ba.png)
+  
+  ![example-request-create-offer](https://user-images.githubusercontent.com/49198371/119232371-5938a280-bb25-11eb-82cf-c7a68e5c20ba.png)
 
 * response example:
 
-```js
-{
-    "product_details": [
-        {
-            "MARQUE": "H&M"
-        },
-        {
-            "TAILLE": "M"
-        },
-        {
-            "ÉTAT": "Peu utilisé"
-        },
-        {
-            "COULEUR": "rouge"
-        },
-        {
-            "EMPLACEMENT": "Paris"
-        }
-    ],
-    "_id": "60a92672bbc1c248b41534c4",
-    "product_name": "Polo manches courtes",
-    "product_description": "Ce polo uni est confectionné dans une belle maille couleur rouge",
-    "product_price": 28,
-    "owner": {
-        "account": {
-            "username": "Remi",
-            "phone": "0606060606",
-            "avatar": {
-                "asset_id": "961ef3a59df135c5839074f31d334af3",
-                "public_id": "vinted/users/60a91cf5bbc1c248b41534c3",
-                "version": 1621695734,
-                "version_id": "e06fa0b6b2392fb9908d0441667a3cec",
-                "signature": "1760e610b4c1dc48df848158845daf265009a40e",
-                "width": 200,
-                "height": 200,
-                "format": "png",
-                "resource_type": "image",
-                "created_at": "2021-05-22T15:02:14Z",
-                "tags": [],
-                "bytes": 57333,
-                "type": "upload",
-                "etag": "62f0c573dc1d61ef36ca7b753d2317a3",
-                "placeholder": false,
-                "url": "http://res.cloudinary.com/remideronzier/image/upload/v1621695734/vinted/users/60a91cf5bbc1c248b41534c3.png",
-                "secure_url": "https://res.cloudinary.com/remideronzier/image/upload/v1621695734/vinted/users/60a91cf5bbc1c248b41534c3.png",
-                "original_filename": "upload_99d6756ceb9e9516f8d5c9d79bddef9f"
-            }
-        },
-        "_id": "60a91cf5bbc1c248b41534c3"
-    },
-    "product_image": [
-        {
-            "asset_id": "f7ecf23083b0810c517b93a760c49053",
-            "public_id": "vinted/offers/60a92672bbc1c248b41534c4/l0qgq0cgpt6mdyr7ag3s",
-            "version": 1621698163,
-            "version_id": "75eaf54b326cf5688d5cbdd978a24c3d",
-            "signature": "20b6bbd5379a1355b437777f087a1afe9cfae045",
-            "width": 568,
-            "height": 730,
-            "format": "png",
-            "resource_type": "image",
-            "created_at": "2021-05-22T15:42:43Z",
-            "tags": [],
-            "bytes": 553647,
-            "type": "upload",
-            "etag": "8d9e0448d4a923ab3acc18335ae5c05e",
-            "placeholder": false,
-            "url": "http://res.cloudinary.com/remideronzier/image/upload/v1621698163/vinted/offers/60a92672bbc1c248b41534c4/l0qgq0cgpt6mdyr7ag3s.png",
-            "secure_url": "https://res.cloudinary.com/remideronzier/image/upload/v1621698163/vinted/offers/60a92672bbc1c248b41534c4/l0qgq0cgpt6mdyr7ag3s.png",
-            "original_filename": "upload_da9a8c4cddcc19a77f3194ab999836d1"
-        },
-        {
-            "asset_id": "2f47c4c18c9cf6b4baa262690eb69882",
-            "public_id": "vinted/offers/60a92672bbc1c248b41534c4/zbx5fvdw4qnvazykxwju",
-            "version": 1621698163,
-            "version_id": "75eaf54b326cf5688d5cbdd978a24c3d",
-            "signature": "417ae7210df3cae2a9fcb705e49d98b784e3a237",
-            "width": 649,
-            "height": 541,
-            "format": "png",
-            "resource_type": "image",
-            "created_at": "2021-05-22T15:42:43Z",
-            "tags": [],
-            "bytes": 754331,
-            "type": "upload",
-            "etag": "d705cc6b6fc0ff5058c8fb9e430a7776",
-            "placeholder": false,
-            "url": "http://res.cloudinary.com/remideronzier/image/upload/v1621698163/vinted/offers/60a92672bbc1c248b41534c4/zbx5fvdw4qnvazykxwju.png",
-            "secure_url": "https://res.cloudinary.com/remideronzier/image/upload/v1621698163/vinted/offers/60a92672bbc1c248b41534c4/zbx5fvdw4qnvazykxwju.png",
-            "original_filename": "upload_ee949b8411d795336c2f0f9421a8c268"
-        }
-    ],
-    "__v": 0
-}
-```
+  ```js
+  {
+      "product_details": [
+          {
+              "MARQUE": "H&M"
+          },
+          {
+              "TAILLE": "M"
+          },
+          {
+              "ÉTAT": "Peu utilisé"
+          },
+          {
+              "COULEUR": "rouge"
+          },
+          {
+              "EMPLACEMENT": "Paris"
+          }
+      ],
+      "_id": "60a92672bbc1c248b41534c4",
+      "product_name": "Polo manches courtes",
+      "product_description": "Ce polo uni est confectionné dans une belle maille couleur rouge",
+      "product_price": 28,
+      "owner": {
+          "account": {
+              "username": "Remi",
+              "phone": "0606060606",
+              "avatar": {
+                  "asset_id": "961ef3a59df135c5839074f31d334af3",
+                  ......
+              }
+          },
+          "_id": "60a91cf5bbc1c248b41534c3"
+      },
+      "product_image": [
+          {
+              "asset_id": "f7ecf23083b0810c517b93a760c49053",
+              .......
+          },
+          {
+              "asset_id": "2f47c4c18c9cf6b4baa262690eb69882",
+              ......
+          }
+      ],
+      "__v": 0
+  }
+  ```
 
 
 
