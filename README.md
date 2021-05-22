@@ -37,9 +37,20 @@ To use Vinted API exercise, follow these steps:
 npx nodemon index.js
 ```
 If everything works correctly, you should see this:
+
 ![start-server](https://user-images.githubusercontent.com/49198371/119230185-76687380-bb1b-11eb-8db2-6a1e0d78eec4.png)
+
 2. Make requests using `Postman` (this is not mandatory, but it is an easy way to send requests):
+
 ![welcome-page](https://user-images.githubusercontent.com/49198371/119230510-ce53aa00-bb1c-11eb-93c1-4a624a590874.png)
+
+### Route details
+#### User routes
+##### Signup
+
+
+
+
 
 
 
