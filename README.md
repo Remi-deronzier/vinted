@@ -49,15 +49,16 @@ If everything works correctly, you should see this:
 ##### Signup route
 * URL: `http://localhost:<your-port>/user/signup`
 * Method HTTP: POST
+* Goal: Enable a user to create an account
 * request parameters:
   
-  Parameter name | Type |  Value example
-  ---------------|--------------- | ---------
-  email | string | remi@example.com
-  username | string | Remi
-  phone | string | 0606060606
-  password |string | azerty
-  picture | image file| my-picture.png 
+  Key name | Parameter Type | Value type |  Value example
+  ---------------|--------------- | --------- | --------
+  email | body | string | remi@example.com
+  username |  body | string | Remi
+  phone |  body | string | 0606060606
+  password | body | string | azerty
+  picture |  body | image file| my-picture.png 
   
 * request and response example:
   
@@ -66,36 +67,38 @@ If everything works correctly, you should see this:
 ##### Login route
 * URL: `http://localhost:<your-port>/user/login`
 * Method HTTP: POST
+* Goal: Enable a user to log in to his/her account
 * request parameters:
   
-  Parameter name | Type |  Value example
-  ---------------|--------------- | ---------
-  email | string | remi@example.com
-  password |string | azerty
+  Key name | Parameter Type | Value type |  Value example
+  ---------------|--------------- | --------- | -------
+  email |  body | string | remi@example.com
+  password |  body |string | azerty
   
 * request and response example:
   
   ![login](https://user-images.githubusercontent.com/49198371/119231337-b1b97100-bb20-11eb-9ce1-da3330c00784.png)
 
 #### Offer routes
-##### create-an-offer route
+##### Create-an-offer route
 * URL: `http://localhost:<your-port>/offer/publish`
 * Method HTTP: POST
+* Goal: Create a new offer
 * Headers: Authorization Bearer Token
 * request parameters:
   
-  Parameter name | Type |  Value example
-  ---------------|--------------- | ---------
-  title | string | Polo manche courte
-  description | string | Polo manche courte confectionné dans une belle maille couleur rouge
-  price | string | 28
-  condition | string | Peu utilisé
-  city | string| Paris
-  brand | string | H&M
-  size | string | M
-  color | string | rouge
-  picture1 | picture file | my-first-picture.png
-  picture2 | picture file | my-second-picture.png
+  Key name | Parameter Type | Value type |  Value example
+  ---------------|--------------- | --------- | --------
+  title |  body |string | Polo manche courte
+  description |  body | string | Polo manche courte confectionné dans une belle maille couleur rouge
+  price |  body | string | 28
+  condition |  body | string | Peu utilisé
+  city |  body | string| Paris
+  brand |  body | string | H&M
+  size |  body | string | M
+  color |  body | string | rouge
+  picture1 |  body | picture file | my-first-picture.png
+  picture2 |  body | picture file | my-second-picture.png
   
   In this version, it is possible to upload as many pictures as wanted. 
   
@@ -161,27 +164,28 @@ If everything works correctly, you should see this:
   }
   ```
   
-##### update-an-offer route
+##### Update-an-offer route
 * URL: `http://localhost:<your-port>/offer/update`
 * Headers: Authorization Bearer Token
 * Method HTTP: PUT
+* Goal: Update an offer. The image(s) stored in `Cloudinary` as well as the image data stored in `MongoDB` are updated.
 * request parameters:
   
-  Parameter name | Type |  Value example
-  ---------------|--------------- | ---------
-  title | string | Polo manche longue
-  description | string | Polo manche longue confectionné dans une belle maille couleur bleue
-  price | string | 30
-  condition | string | Neuf
-  city | string| Lyon
-  brand | string | Jules
-  size | string | S
-  color | string | bleu
-  picture1 | picture file | my-first-picture.png
-  picture2 | picture file | my-second-picture.png
-  picture-to-delete1 | cloudinary public_id | vinted/offers/60a92672bbc1c248b41534c4/zbx5fvdw4qnvazykxwju
-  picture-to-delete2 | cloudinary public_id | vinted/offers/60a92672bbc1c248b41534c4/l0qgq0cgpt6mdyr7ag3s
-  id | Mongodb ObjectId of the offer you want to update | 60a92672bbc1c248b41534c4
+  Key name | Parameter Type | Value type |  Value example
+  ---------------|--------------- | --------- | --------
+  title |  body |string | Polo manche longue
+  description |  body | string | Polo manche longue confectionné dans une belle maille couleur bleue
+  price |  body | string | 30
+  condition |  body | string | Neuf
+  city |  body | string| Lyon
+  brand | body |  string | Jules
+  size | body |  string | S
+  color | body | string | bleu
+  picture1 |  body | picture file | my-first-picture.png
+  picture2 |  body | picture file | my-second-picture.png
+  picture-to-delete1 | body | `Cloudinary` public_id | vinted/offers/60a92672bbc1c248b41534c4/zbx5fvdw4qnvazykxwju
+  picture-to-delete2 |  body |`Cloudinary` public_id | vinted/offers/60a92672bbc1c248b41534c4/l0qgq0cgpt6mdyr7ag3s
+  id |  body | `MongoDB` ObjectId of the offer you want to update | 60a92672bbc1c248b41534c4
   
   In this version, it is possible to upload as many pictures as wanted. 
   
@@ -203,7 +207,30 @@ If everything works correctly, you should see this:
     "message": "Offer successfully updated"
    }
   ```
-  The image(s) stored in `Cloudinary` as well as the data stored in `MongoDB` are updated.
+  
+  ##### Delete-an-offer route
+* URL: `http://localhost:<your-port>/offer/delete`
+* Headers: Authorization Bearer Token
+* Method HTTP: DELETE
+* Goal: Delete an offer. The image(s) stored in `Cloudinary` as well as the data stored in `MongoDB` are deleted.
+* request parameters:
+  
+  Key name | Parameter Type | Value type |  Value example
+  ---------------|--------------- | --------- | ------
+  id |  body | `MongoDB` ObjectId of the offer you want to update | 60a92672bbc1c248b41534c4
+  
+  ⚠️ Do not forget to add a Bearer Token in your request (*see approach above*).
+  
+* request example:
+  
+  ![example-request-delete-offer](https://user-images.githubusercontent.com/49198371/119234441-3a8ad980-bb2e-11eb-87e6-1e6e38f74c5c.png)
+  
+* response example:
 
+  ```js
+  {
+    "message": "Offer successfully deleted"
+   }
+  ```
 
 
