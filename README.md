@@ -91,7 +91,7 @@ If everything works correctly, you should see this:
   ---------------|--------------- | --------- | --------
   title |  body |string | Polo manche courte
   description |  body | string | Polo manche courte confectionné dans une belle maille couleur rouge
-  price |  body | string | 28
+  price |  body | number | 28
   condition |  body | string | Peu utilisé
   city |  body | string| Paris
   brand |  body | string | H&M
@@ -145,7 +145,7 @@ If everything works correctly, you should see this:
               "phone": "0606060606",
               "avatar": {
                   "asset_id": "961ef3a59df135c5839074f31d334af3",
-                  ......
+                  // ...
               }
           },
           "_id": "60a91cf5bbc1c248b41534c3"
@@ -153,11 +153,11 @@ If everything works correctly, you should see this:
       "product_image": [
           {
               "asset_id": "f7ecf23083b0810c517b93a760c49053",
-              .......
+              // ...
           },
           {
               "asset_id": "2f47c4c18c9cf6b4baa262690eb69882",
-              ......
+              // ...
           }
       ],
       "__v": 0
@@ -175,7 +175,7 @@ If everything works correctly, you should see this:
   ---------------|--------------- | --------- | --------
   title |  body |string | Polo manche longue
   description |  body | string | Polo manche longue confectionné dans une belle maille couleur bleue
-  price |  body | string | 30
+  price |  body | number | 30
   condition |  body | string | Neuf
   city |  body | string| Lyon
   brand | body |  string | Jules
