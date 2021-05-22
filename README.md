@@ -47,7 +47,7 @@ If everything works correctly, you should see this:
 ### Route details
 #### User routes
 ##### Signup route
-* URL: http://localhost:<your-port>/user/signup
+* URL: `http://localhost:<your-port>/user/signup`
 * request parameters:
   
   Parameter name | Type |  Value example
@@ -61,5 +61,18 @@ If everything works correctly, you should see this:
 * request and response example:
   
   ![signup](https://user-images.githubusercontent.com/49198371/119231193-d6611900-bb1f-11eb-8df6-bfff453dc238.png)
+
+##### Login route
+* URL: `http://localhost:<your-port>/user/login`
+* request parameters:
+  
+  Parameter name | Type |  Value example
+  ---------------|--------------- | ---------
+  email | string | remi@example.com
+  password |string | azerty
+  
+* request and response example:
+  
+  ![login](https://user-images.githubusercontent.com/49198371/119231337-b1b97100-bb20-11eb-9ce1-da3330c00784.png)
 
 
