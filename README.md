@@ -52,7 +52,7 @@ If everything works correctly, you should see this:
 * Goal: Enable a user to create an account
 * request parameters:
   
-  Key name | Parameter Type | Value type |  Value example
+  Key name | Parameter type | Value type |  Value example
   ---------------|--------------- | --------- | --------
   email | body | string | remi@example.com
   username |  body | string | Remi
@@ -70,7 +70,7 @@ If everything works correctly, you should see this:
 * Goal: Enable a user to log in to his/her account
 * request parameters:
   
-  Key name | Parameter Type | Value type |  Value example
+  Key name | Parameter type | Value type |  Value example
   ---------------|--------------- | --------- | -------
   email |  body | string | remi@example.com
   password |  body |string | azerty
@@ -87,7 +87,7 @@ If everything works correctly, you should see this:
 * Headers: Authorization Bearer Token
 * request parameters:
   
-  Key name | Parameter Type | Value type |  Value example
+  Key name | Parameter type | Value type |  Value example
   ---------------|--------------- | --------- | --------
   title |  body |string | Polo manche courte
   description |  body | string | Polo manche courte confectionné dans une belle maille couleur rouge
@@ -171,7 +171,7 @@ If everything works correctly, you should see this:
 * Goal: Update an offer. The image(s) stored in `Cloudinary` as well as the image data stored in `MongoDB` are updated.
 * request parameters:
   
-  Key name | Parameter Type | Value type |  Value example
+  Key name | Parameter type | Value type |  Value example
   ---------------|--------------- | --------- | --------
   title |  body |string | Polo manche longue
   description |  body | string | Polo manche longue confectionné dans une belle maille couleur bleue
@@ -215,7 +215,7 @@ If everything works correctly, you should see this:
 * Goal: Delete an offer. The image(s) stored in `Cloudinary` as well as the data stored in `MongoDB` are deleted.
 * request parameters:
   
-  Key name | Parameter Type | Value type |  Value example
+  Key name | Parameter type | Value type |  Value example
   ---------------|--------------- | --------- | ------
   id |  body | `MongoDB` ObjectId of the offer you want to update | 60a92672bbc1c248b41534c4
   
@@ -239,7 +239,7 @@ If everything works correctly, you should see this:
 * Goal: Filter the offers according to different parameters. Send back the number `count` of offers that match input parameters
 * request parameters:
   
-  Key name | Parameter Type | Value type |  Value example | Effect
+  Key name | Parameter type | Value type |  Value example | Effect
   ---------------|--------------- | --------- | ------ | -----
   title |  query | string | chemise | filters the offers according to their title: only the offers of which the title match with this parameter will be send back
   priceMin |  query | number | 20 | filters the offers according to their price: only the offers of which the price is greater or equal than priceMin will be send back
@@ -309,7 +309,7 @@ If everything works correctly, you should see this:
 * Goal: Read one specific offer
 * request parameters:
   
-  Key name | Parameter Type | Value type |  Value example 
+  Key name | Parameter type | Value type |  Value example 
   ---------------|--------------- | --------- | ------
   id |  params | `MongoDB` ObjectId of the offer you want to read | 6097d297358ed95c0cc17dc1
   
