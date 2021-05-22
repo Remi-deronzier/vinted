@@ -17,7 +17,18 @@ Before you begin, ensure you have met the following requirements:
 To install Vinted API exercise, follow these steps:
 1. Download the code
 ![download-code](https://user-images.githubusercontent.com/49198371/119229498-a6624780-bb18-11eb-82ba-48008a112c83.png)
-2. 
+2. Install all the npm packages needed:
+```js
+npm i
+```
+3. Create a `.env` file at the root of the project as follow:
+```js
+CLOUDINARY_NAME = <your-cloudinary-name>
+CLOUDINARY_API_KEY = <your-cloudinary-api-key>
+CLOUDINARY_API_SECRET = <your-cloudinary-api-secret>
+MONGODB_URI = <your-mongodb-uri>
+PORT = <the-listening-port-of-your-server>
+```
 
 
 
