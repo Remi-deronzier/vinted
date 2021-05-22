@@ -155,7 +155,9 @@ router.delete("/offer/delete", isAuthenticated, async (req, res) => {
   console.log(req.fields);
   try {
     const offer = await Offer.findByIdAndDelete(req.fields.id);
-    await cloudinary.api.delete_resources([offer.product_image.public_id]);
+    await cloudinary.api.delete_resources_by_prefix([
+      `vinted/offers/${req.fields.id}`,
+    ]);
     await cloudinary.api.delete_folder(`/vinted/offers/${req.fields.id}`);
     res.status(200).json({ message: "Offer successfully deleted" });
   } catch (error) {
@@ -224,6 +226,19 @@ router.get("/offer/:id", async (req, res) => {
       "owner",
       "account"
     );
+    res.status(200).json(offer);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+// Get all announcements
+
+router.get("/offer", async (req, res) => {
+  console.log("route: /offer");
+  console.log(req.params);
+  try {
+    const offer = await Offer.find().populate("owner", "account");
     res.status(200).json(offer);
   } catch (error) {
     res.status(400).json({ message: error.message });

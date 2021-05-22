@@ -29,7 +29,12 @@ app.use(userRoutes);
 const offerRoutes = require("./routes/offer");
 app.use(offerRoutes);
 
-// Start server + Page not found
+// Start server + Page not found + Welcome page
+
+app.get("/", (req, res) => {
+  console.log("route: /");
+  res.status(200).json({ message: "Hello World!" });
+});
 
 app.all("*", (req, res) => {
   console.log("route: /all routes");
