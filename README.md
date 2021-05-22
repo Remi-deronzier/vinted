@@ -42,7 +42,7 @@ If everything works correctly, you should see this:
 
 2. Make requests using `Postman` (this is not mandatory, but it is an easy way to send requests):
 
-![welcome-page](https://user-images.githubusercontent.com/49198371/119230510-ce53aa00-bb1c-11eb-93c1-4a624a590874.png)
+![welcome-page](https://user-images.githubusercontent.com/49198371/119236130-061b1b80-bb36-11eb-8fd5-3d35e11a9c37.png)
 
 ### Route details
 #### User routes
