@@ -217,7 +217,7 @@ If everything works correctly, you should see this:
   
   Key name | Parameter type | Value type |  Value example
   ---------------|--------------- | --------- | ------
-  id |  body | `MongoDB` ObjectId of the offer you want to update | 60a92672bbc1c248b41534c4
+  id |  body | `MongoDB` ObjectId of the offer you want to delete | 60a92672bbc1c248b41534c4
   
   ⚠️ Do not forget to add a Bearer Token in your request (*see approach above*).
   
