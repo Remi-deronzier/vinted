@@ -50,7 +50,7 @@ If everything works correctly, you should see this:
 * URL: `http://localhost:<your-port>/user/signup`
 * Method HTTP: POST
 * Goal: Enable a user to create an account
-* request parameters:
+* Request parameters:
   
   Key name | Parameter type | Value type |  Value example
   ---------------|--------------- | --------- | --------
@@ -68,7 +68,7 @@ If everything works correctly, you should see this:
 * URL: `http://localhost:<your-port>/user/login`
 * Method HTTP: POST
 * Goal: Enable a user to log in to his/her account
-* request parameters:
+* Request parameters:
   
   Key name | Parameter type | Value type |  Value example
   ---------------|--------------- | --------- | -------
@@ -85,7 +85,7 @@ If everything works correctly, you should see this:
 * Method HTTP: POST
 * Goal: Create a new offer
 * Headers: Authorization Bearer Token
-* request parameters:
+* Request parameters:
   
   Key name | Parameter type | Value type |  Value example
   ---------------|--------------- | --------- | --------
@@ -110,7 +110,7 @@ If everything works correctly, you should see this:
   
   ![bearer-token](https://user-images.githubusercontent.com/49198371/119231767-d9113d80-bb22-11eb-8687-85d52b8a7231.png)
 
-* request example:
+* Request example:
   
   ![example-request-create-offer](https://user-images.githubusercontent.com/49198371/119232371-5938a280-bb25-11eb-82cf-c7a68e5c20ba.png)
 
@@ -169,7 +169,7 @@ If everything works correctly, you should see this:
 * Headers: Authorization Bearer Token
 * Method HTTP: PUT
 * Goal: Update an offer. The image(s) stored in `Cloudinary` as well as the image data stored in `MongoDB` are updated.
-* request parameters:
+* Request parameters:
   
   Key name | Parameter type | Value type |  Value example
   ---------------|--------------- | --------- | --------
@@ -196,11 +196,11 @@ If everything works correctly, you should see this:
   
   ⚠️ Do not forget to add a Bearer Token in your request (*see approach above*).
   
-* request example:
+* Request example:
   
   ![example-request-update-offer](https://user-images.githubusercontent.com/49198371/119233690-8176d000-bb2a-11eb-9237-550c0a2afb47.png)
   
-* response example:
+* Response example:
 
   ```js
   {
@@ -213,7 +213,7 @@ If everything works correctly, you should see this:
 * Headers: Authorization Bearer Token
 * Method HTTP: DELETE
 * Goal: Delete an offer. The image(s) stored in `Cloudinary` as well as the data stored in `MongoDB` are deleted.
-* request parameters:
+* Request parameters:
   
   Key name | Parameter type | Value type |  Value example
   ---------------|--------------- | --------- | ------
@@ -221,11 +221,11 @@ If everything works correctly, you should see this:
   
   ⚠️ Do not forget to add a Bearer Token in your request (*see approach above*).
   
-* request example:
+* Request example:
   
   ![example-request-delete-offer](https://user-images.githubusercontent.com/49198371/119234441-3a8ad980-bb2e-11eb-87e6-1e6e38f74c5c.png)
   
-* response example:
+* Response example:
 
   ```js
   {
@@ -233,11 +233,11 @@ If everything works correctly, you should see this:
    }
   ```
 
-##### Filter-offers route
+##### Filter-offer route
 * URL: `http://localhost:<your-port>/offers`
 * Method HTTP: GET
 * Goal: Filter the offers according to different parameters. Send back the number `count` of offers that match input parameters
-* request parameters:
+* Request parameters:
   
   Key name | Parameter type | Value type |  Value example | Effect
   ---------------|--------------- | --------- | ------ | -----
@@ -248,11 +248,11 @@ If everything works correctly, you should see this:
   limit |  query | number | 8 | enables to specify the number of offers which can be displayed on a single page
   sort |  query | string | `price-desc` OR `price-asc` | enables to sort the offers in ascending order (`price-asc`) or in descending order (`price-desc`) according to their price
     
-* request example:
+* Request example:
   
   ![example-request-filter-offer](https://user-images.githubusercontent.com/49198371/119235452-ef26fa00-bb32-11eb-923d-a80b3c7ab5c6.png)
   
-* response example:
+* Response example:
 
   ```js
   {
@@ -278,7 +278,9 @@ If everything works correctly, you should see this:
               ],
               "_id": "6097e37cd275dc0a70a1b092",
               "product_name": "chemise hawaïenne feuille",
-              "product_description": "Chemise manches courtes coupe regular. Son imprimé feuillage est tendance et facilement associable à un jean ou un bermuda. On aime sa légèreté et sa douceur grâce à sa matière viscose. Elle détient un col requin",
+              "product_description": "Chemise manches courtes coupe regular. Son imprimé feuillage est tendance et
+              facilement associable à un jean ou un bermuda. On aime sa légèreté et sa douceur grâce à sa matière
+              viscose. Elle détient un col requin",
               "product_price": 37,
               "owner": {
                   "account": {
@@ -307,7 +309,7 @@ If everything works correctly, you should see this:
 * URL: `http://localhost:<your-port>/offer/:id`
 * Method HTTP: GET
 * Goal: Read one specific offer
-* request parameters:
+* Request parameters:
   
   Key name | Parameter type | Value type |  Value example 
   ---------------|--------------- | --------- | ------
@@ -316,11 +318,11 @@ If everything works correctly, you should see this:
   **NB:**
   * **If you don't specify an `id`, all the offers will be send back**
 
-* request example:
+* Request example:
   
   ![example-request-read-offer](https://user-images.githubusercontent.com/49198371/119235735-46799a00-bb34-11eb-95e3-27cecf76a60c.png)
   
-* response example:
+* Response example:
 
   ```js
   {
