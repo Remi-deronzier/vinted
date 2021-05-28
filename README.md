@@ -278,7 +278,8 @@ If everything works correctly, you should see this:
               ],
               "_id": "6097e37cd275dc0a70a1b092",
               "product_name": "chemise hawaïenne feuille",
-              "product_description": "Chemise manches courtes coupe regular. Son imprimé feuillage est tendance et facilement associable à un jean ou un bermuda. On aime sa légèreté et sa douceur grâce à sa matière viscose. Elle détient un col requin",
+              "product_description": "Chemise manches courtes coupe regular. Son imprimé feuillage est tendance et facilement associable à
+              un jean ou un bermuda. On aime sa légèreté et sa douceur grâce à sa matière viscose. Elle détient un col requin",
               "product_price": 37,
               "owner": {
                   "account": {
