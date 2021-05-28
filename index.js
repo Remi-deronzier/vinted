@@ -4,13 +4,10 @@ const formidable = require("express-formidable");
 const cloudinary = require("cloudinary").v2;
 require("dotenv").config();
 const cors = require("cors");
-const path = require("path");
 
 const app = express();
 app.use(formidable());
 app.use(cors());
-
-// connexion DB + cloudinary
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
@@ -32,12 +29,7 @@ app.use(offerRoutes);
 
 // Start server + Page not found + Welcome page
 
-app.get("/", (req, res) => {
-  console.log("route: /");
-  res
-    .status(200)
-    .sendFile(path.join(__dirname + "/integration" + "/index.html"));
-});
+app.use("/", express.static("integration"));
 
 app.all("*", (req, res) => {
   console.log("route: /all routes");
