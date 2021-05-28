@@ -233,7 +233,7 @@ If everything works correctly, you should see this:
    }
   ```
 
-##### Filter-offers route
+##### Filter-offer route
 * URL: `http://localhost:<your-port>/offers`
 * Method HTTP: GET
 * Goal: Filter the offers according to different parameters. Send back the number `count` of offers that match input parameters
