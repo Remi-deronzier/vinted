@@ -4,6 +4,7 @@ const formidable = require("express-formidable");
 const cloudinary = require("cloudinary").v2;
 require("dotenv").config();
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 app.use(formidable());
@@ -33,7 +34,9 @@ app.use(offerRoutes);
 
 app.get("/", (req, res) => {
   console.log("route: /");
-  res.status(200).json({ message: "Hello World!" });
+  res
+    .status(200)
+    .sendFile(path.join(__dirname + "/integration" + "/index.html"));
 });
 
 app.all("*", (req, res) => {

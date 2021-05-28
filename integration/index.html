@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vinted API</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="container">
+        <img src="./assets/img/logo.png" alt="" />
+      </div>
+    </header>
+    <!-- MAIN -->
+    <main>
+      <div class="container">
+        <!-- VINTED API EXERCISE -->
+        <div class="presentation">
+          <div class="img-logo">
+            <img src="./assets/img/vinted-logo2.png" alt="logo vinted" />
+          </div>
+        </div>
+        <div class="introduction">
+          <h1 class="h2-presentation"><span>Vinted</span> API Exercise</h1>
+          <p>
+            Vinted API exercise is a miniature-scale reproduction of the Vinted
+            API that allows users to : create an account, login to this account,
+            create an offer, update this offer (including uploading pictures),
+            filter the offers and delete an offer.
+          </p>
+          <p>
+            This little educational project was made during my web and mobile
+            developer training with <span>Le Réacteur</span>.
+          </p>
+          <button
+            type="button"
+            onclick="window.location.href='https://www.lereacteur.io';"
+          >
+            le réacteur
+          </button>
+        </div>
+        <h2 class="route">Route <span>details</span></h2>
+        <!-- USER ROUTES -->
+        <h3><span>User</span> routes</h3>
+        <section>
+          <!-- SIGNUP ROUTE -->
+          <h4><span>Signup</span> route</h4>
+          <ul>
+            <li>
+              <span>URL: </span
+              ><a
+                class="link"
+                href="https://vinted-api-remi.herokuapp.com/user/signup"
+                target="_blank"
+                >https://vinted-api-remi.herokuapp.com/user/signup</a
+              >
+            </li>
+            <li>
+              <span>Method HTTP: </span><code class="higlight-style">POST</code>
+            </li>
+            <li><span>Goal:</span> Enable a user to create an account</li>
+            <li>
+              <span>Request parameters: </span>
+              <div class="my-table">
+                <table style="width: 100%">
+                  <tr>
+                    <th>Key name</th>
+                    <th>Parameter type</th>
+                    <th>Value type</th>
+                    <th>Value example</th>
+                  </tr>
+                  <tr>
+                    <td>email</td>
+                    <td>body</td>
+                    <td>string</td>
+                    <td>remi@example.com</td>
+                  </tr>
+                  <tr>
+                    <td>username</td>
+                    <td>body</td>
+                    <td>string</td>
+                    <td>Remi</td>
+                  </tr>
+                  <tr>
+                    <td>phone</td>
+                    <td>body</td>
+                    <td>string</td>
+                    <td>0606060606</td>
+                  </tr>
+                  <tr>
+                    <td>password</td>
+                    <td>body</td>
+                    <td>string</td>
+                    <td>azerty</td>
+                  </tr>
+                  <tr>
+                    <td>picture</td>
+                    <td>body</td>
+                    <td>image file</td>
+                    <td>my-picture.png</td>
+                  </tr>
+                </table>
+              </div>
+            </li>
+            <li>
+              <span
+                >Request and response example with
+                <a href="https://www.postman.com/" target="_blank">Postman</a>:
+              </span>
+              <br />
+              <img
+                src="./assets/img/signup.png"
+                alt="signup route"
+                class="signup-img"
+              />
+            </li>
+          </ul>
+        </section>
+        <!-- LOGIN ROUTE -->
+        <section>
+          <h4><span>Login</span> route</h4>
+          <ul>
+            <li>
+              <span>URL: </span>
+              <a
+                class="link"
+                href="https://vinted-api-remi.herokuapp.com/user/login"
+                target="_blank"
+                >https://vinted-api-remi.herokuapp.com/user/login</a
+              >
+            </li>
+            <li>
+              <span>Method HTTP: </span><code class="higlight-style">POST</code>
+            </li>
+            <li>
+              <span>Goal:</span> Enable a user to log in to his/her account
+            </li>
+            <li>
+              <span>Request parameters: </span>
+              <div class="my-table">
+                <table style="width: 100%">
+                  <tr>
+                    <th>Key name</th>
+                    <th>Parameter type</th>
+                    <th>Value type</th>
+                    <th>Value example</th>
+                  </tr>
+                  <tr>
+                    <td>email</td>
+                    <td>body</td>
+                    <td>string</td>
+                    <td>remi@example.com</td>
+                  </tr>
+                  <tr>
+                    <td>password</td>
+                    <td>body</td>
+                    <td>string</td>
+                    <td>azerty</td>
+                  </tr>
+                </table>
+              </div>
+            </li>
+            <li>
+              <span
+                >Request and response example with
+                <a href="https://www.postman.com/" target="_blank">Postman</a>:
+              </span>
+              <br />
+              <img
+                src="./assets/img/login.png"
+                alt="login route"
+                class="login-img"
+              />
+            </li>
+          </ul>
+        </section>
+        <!-- OFFER ROUTES -->
+        <h3><span>Offer</span> routes</h3>
+        <section>
+          <!-- CREATE-AN-OFFER ROUTE -->
+          <h4><span>Create-an-offer</span> route</h4>
+          <ul>
+            <li>
+              <span>URL: </span
+              ><a
+                class="link"
+                href="https://vinted-api-remi.herokuapp.com/offer/publish"
+                target="_blank"
+                >https://vinted-api-remi.herokuapp.com/offer/publish</a
+              >
+            </li>
+            <li>
+              <span>Method HTTP: </span><code class="higlight-style">POST</code>
+            </li>
+            <li><span>Goal:</span> Create a new offer</li>
+            <li><span>Headers:</span> Authorization Bearer Token</li>
+            <li>
+              <span>Request parameters: </span>
+              <div id="table-create-offer">
+                <table style="width: 100%">
+                  <tr>
+                    <th>Key name</th>
+                    <th>Parameter type</th>
+                    <th>Value type</th>
+                    <th>Value example</th>
+                  </tr>
+                  <tr>
+                    <td>title</td>
+                    <td>body</td>
+                    <td>string</td>
+                    <td>Polo manche courte</td>
+                  </tr>
+                  <tr>
+                    <td>description</td>
+                    <td>body</td>
+                    <td>string</td>
+                    <td>
+                      Polo manche courte confectionné dans une belle maille
+                      couleur rouge
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>price</td>
+                    <td>body</td>
+                    <td>number</td>
+                    <td>28</td>
+                  </tr>
+                  <tr>
+                    <td>condition</td>
+                    <td>body</td>
+                    <td>string</td>
+                    <td>Peu utilisé</td>
+                  </tr>
+                  <tr>
+                    <td>city</td>
+                    <td>body</td>
+                    <td>string</td>
+                    <td>Paris</td>
+                  </tr>
+                  <tr>
+                    <td>brand</td>
+                    <td>body</td>
+                    <td>string</td>
+                    <td>H&M</td>
+                  </tr>
+                  <tr>
+                    <td>size</td>
+                    <td>body</td>
+                    <td>string</td>
+                    <td>M</td>
+                  </tr>
+                  <tr>
+                    <td>color</td>
+                    <td>body</td>
+                    <td>string</td>
+                    <td>rouge</td>
+                  </tr>
+                  <tr>
+                    <td>picture1</td>
+                    <td>body</td>
+                    <td>picture file</td>
+                    <td>my-first-picture.png</td>
+                  </tr>
+                  <tr>
+                    <td>picture2</td>
+                    <td>body</td>
+                    <td>picture file</td>
+                    <td>my-second-picture.png</td>
+                  </tr>
+                </table>
+              </div>
+            </li>
+            <p class="para-before-nb">
+              You can upload as many pictures as you want
+            </p>
+            <p class="para-nb">NB:</p>
+            <ul class="ul-nb">
+              <li>You can name the image variables as you please</li>
+              <li>
+                You must specify the following parameters: price, description
+                and title
+              </li>
+            </ul>
+            <p class="para-before-nb">
+              &#9995 Do not forget to add a Bearer Token in your request:
+            </p>
+            <img
+              src="./assets/img/bearer-token.png"
+              alt="bearer token"
+              class="token-img"
+            />
+            <li>
+              <span
+                >Request example with
+                <a href="https://www.postman.com/" target="_blank">Postman</a>:
+              </span>
+              <br />
+              <img
+                src="./assets/img/example-request-create-offer.png"
+                alt="create an offer route"
+                class="request-create-offer-img"
+              />
+            </li>
+            <li>
+              <span>Response example:</span>
+              <img src="./assets/img/code-create-offer.png" alt="response json create offer" class="response-create-offer-img">
+            </li>
+          </ul>
+        </section>
+        <section>
+          <!-- UPDATE-AN-OFFER ROUTE -->
+          <h4><span>Update-an-offer</span> route</h4>
+          <ul>
+            <li>
+              <span>URL: </span
+              ><a
+                class="link"
+                href="https://vinted-api-remi.herokuapp.com/offer/update"
+                target="_blank"
+                >https://vinted-api-remi.herokuapp.com/offer/update</a
+              >
+            </li>
+            <li>
+              <span>Method HTTP: </span><code class="higlight-style">PUT</code>
+            </li>
+            <li><span>Goal:</span> The image(s) stored in <em>Cloudinary</em> as well as the image data stored in <em>MongoDB</em> are updated</li>
+            <li><span>Headers:</span> Authorization Bearer Token</li>
+            <li>
+              <span>Request parameters: </span>
+              <div id="table-update-offer">
+                <table style="width: 100%">
+                  <tr>
+                    <th>Key name</th>
+                    <th>Parameter type</th>
+                    <th>Value type</th>
+                    <th>Value example</th>
+                  </tr>
+                  <tr>
+                    <td>title</td>
+                    <td>body</td>
+                    <td>string</td>
+                    <td>Polo manche longue</td>
+                  </tr>
+                  <tr>
+                    <td>description</td>
+                    <td>body</td>
+                    <td>string</td>
+                    <td>
+                      Polo manche longue confectionné dans une belle maille
+                      couleur bleue
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>price</td>
+                    <td>body</td>
+                    <td>number</td>
+                    <td>30</td>
+                  </tr>
+                  <tr>
+                    <td>condition</td>
+                    <td>body</td>
+                    <td>string</td>
+                    <td>Neuf</td>
+                  </tr>
+                  <tr>
+                    <td>city</td>
+                    <td>body</td>
+                    <td>string</td>
+                    <td>Lyon</td>
+                  </tr>
+                  <tr>
+                    <td>brand</td>
+                    <td>body</td>
+                    <td>string</td>
+                    <td>Jules</td>
+                  </tr>
+                  <tr>
+                    <td>size</td>
+                    <td>body</td>
+                    <td>string</td>
+                    <td>S</td>
+                  </tr>
+                  <tr>
+                    <td>color</td>
+                    <td>body</td>
+                    <td>string</td>
+                    <td>bleu</td>
+                  </tr>
+                  <tr>
+                    <td>picture1</td>
+                    <td>body</td>
+                    <td>picture file</td>
+                    <td>my-first-picture.png</td>
+                  </tr>
+                  <tr>
+                    <td>picture2</td>
+                    <td>body</td>
+                    <td>picture file</td>
+                    <td>my-second-picture.png</td>
+                  </tr>
+                  <tr>
+                    <td>picture-to-delete1</td>
+                    <td>body</td>
+                    <td><em>Cloudinary</em> public_id</td>
+                    <td>vinted/offers/60a92672bbc1c248b41534c4/zbx5fvdw4qnvazykxwju</td>
+                  </tr>
+                  <tr>
+                    <td>picture-to-delete2</td>
+                    <td>body</td>
+                    <td><em>Cloudinary</em> public_id</td>
+                    <td>vinted/offers/60a92672bbc1c248b41534c4/l0qgq0cgpt6mdyr7ag3s
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>id</td>
+                    <td>body</td>
+                    <td><em>MongoDB</em> ObjectId of the offer you want to update</td>
+                    <td>60a92672bbc1c248b41534c4</td>
+                  </tr>
+                </table>
+              </div>
+            </li>
+            <p class="para-before-nb">
+              You can upload as many pictures as you want
+            </p>
+            <p class="para-nb">NB:</p>
+            <ul class="ul-nb">
+              <li>You can name the image variables you want to add as you please</li>
+              <li>
+                You have to name the image variables you want to delete as follow: <code class="higlight-style-nb">picture-to-delete${a number}</code>
+              </li>
+              <li>
+                You can specify as many parameters as you please (ie none or all). Only the <code class="higlight-style-nb">id</code> parameter is mandatory
+              </li>
+            </ul>
+            <p class="para-before-nb">
+              &#9995 Do not forget to add a Bearer Token in your request (see approach above)
+            </p>
+            <li>
+              <span
+                >Request example with
+                <a href="https://www.postman.com/" target="_blank">Postman</a>:
+              </span>
+              <br />
+              <img
+                src="./assets/img/example-request-update-offer.png"
+                alt="update an offer route"
+                class="request-update-offer-img"
+              />
+            </li>
+            <li>
+              <span>Response example:</span>
+              <img src="./assets/img/code-update-offer.png" alt="response json update offer" class="response-update-offer-img">
+            </li>
+          </ul>
+        </section>
+        <section>
+          <!-- DELETE-AN-OFFER ROUTE -->
+          <h4><span>Delete-an-offer</span> route</h4>
+          <ul>
+            <li>
+              <span>URL: </span
+              ><a
+                class="link"
+                href="https://vinted-api-remi.herokuapp.com/offer/delete"
+                target="_blank"
+                >https://vinted-api-remi.herokuapp.com/offer/delete</a
+              >
+            </li>
+            <li>
+              <span>Method HTTP: </span><code class="higlight-style">DELETE</code>
+            </li>
+            <li><span>Goal:</span> Delete an offer. The image(s) stored in <em>Cloudinary</em> as well as the data stored in <em>MongoDB</em> are deleted.
+            <li><span>Headers:</span> Authorization Bearer Token</li>
+            <li>
+              <span>Request parameters: </span>
+              <div id="table-delete-offer">
+                <table style="width: 100%">
+                  <tr>
+                    <th>Key name</th>
+                    <th>Parameter type</th>
+                    <th>Value type</th>
+                    <th>Value example</th>
+                  </tr>
+                  <tr>
+                    <td>id</td>
+                    <td>body</td>
+                    <td><em>MongoDB</em> ObjectId of the offer you want to update</td>
+                    <td>60a92672bbc1c248b41534c4</td>
+                  </tr>
+                </table>
+              </div>
+            </li>
+            <p class="para-before-nb">
+              &#9995 Do not forget to add a Bearer Token in your request (see approach above)
+            </p>
+            <li>
+              <span
+                >Request example with
+                <a href="https://www.postman.com/" target="_blank">Postman</a>:
+              </span>
+              <br />
+              <img
+                src="./assets/img/example-request-delete-offer.png"
+                alt="delete an offer route"
+                class="request-delete-offer-img"
+              />
+            </li>
+            <li>
+              <span>Response example:</span>
+              <img src="./assets/img/code-delete-offer.png" alt="response json delete offer" class="response-delete-offer-img">
+            </li>
+          </ul>
+        </section>
+        <section>
+          <!-- FILTER-OFFER ROUTE -->
+          <h4><span>Filter-offer</span> route</h4>
+          <ul>
+            <li>
+              <span>URL: </span
+              ><a
+                class="link"
+                href="https://vinted-api-remi.herokuapp.com/offers"
+                target="_blank"
+                >https://vinted-api-remi.herokuapp.com/offers</a
+              >
+            </li>
+            <li>
+              <span>Method HTTP: </span><code class="higlight-style">GET</code>
+            </li>
+            <li><span>Goal:</span> Filter the offers according to different parameters. Send back the number <code class="higlight-style">count</code> of offers that match input parameters</li>
+            <li>
+              <span>Request parameters: </span>
+              <div id="table-filter-offer">
+                <table style="width: 100%">
+                  <tr>
+                    <th>Key name</th>
+                    <th>Parameter type</th>
+                    <th>Value type</th>
+                    <th>Value example</th>
+                    <th>Effect</th>
+                  </tr>
+                  <tr>
+                    <td>title</td>
+                    <td>query</td>
+                    <td>string</td>
+                    <td>chemise</td>
+                    <td>filters the offers according to their title: only the offers of which the title match with this parameter will be send back</td>
+                  </tr>
+                  <tr>
+                    <td>priceMin</td>
+                    <td>query</td>
+                    <td>number</td>
+                    <td>20</td>
+                    <td>filters the offers according to their price: only the offers of which the price is greater or equal to priceMin will be send back
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>priceMax</td>
+                    <td>query</td>
+                    <td>number</td>
+                    <td>100</td>
+                    <td>filters the offers according to their price: only the offers of which the price is lower or equal to priceMax will be send back
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>page</td>
+                    <td>query</td>
+                    <td>number</td>
+                    <td>1</td>
+                    <td>sends back only the offers which correspond to the number of the page specified</td>
+                  </tr>
+                  <tr>
+                    <td>limit</td>
+                    <td>query</td>
+                    <td>number</td>
+                    <td>8</td>
+                    <td>enables to specify the number of offers which can be displayed on a single page
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>sort</td>
+                    <td>query</td>
+                    <td>string</td>
+                    <td><code class="higlight-style">price-desc</code> OR <code class="higlight-style">price-asc</code></td>
+                    <td>enables to sort the offers in ascending order (<code class="higlight-style">price-asc</code>) or in descending order (<code class="higlight-style">price-desc</code>) according to their price
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </li>
+            <li>
+              <span
+                >Request example with
+                <a href="https://www.postman.com/" target="_blank">Postman</a>:
+              </span>
+              <br />
+              <img
+                src="./assets/img/example-request-filter-offer.png"
+                alt="filter an offer route"
+                class="request-filter-offer-img"
+              />
+            </li>
+            <li>
+              <span>Response example:</span>
+              <img src="./assets/img/code-filter-offer.png" alt="response json filter offer" class="response-filter-offer-img">
+            </li>
+          </ul>
+        </section>
+        <section>
+          <!-- READ-ONE-OFFER ROUTE -->
+          <h4><span>Read-one-offer</span> route</h4>
+          <ul>
+            <li>
+              <span>URL: </span
+              ><a
+                class="link"
+                href="https://vinted-api-remi.herokuapp.com/offer/:id"
+                target="_blank"
+                >https://vinted-api-remi.herokuapp.com/offer/:id</a
+              >
+            </li>
+            <li>
+              <span>Method HTTP: </span><code class="higlight-style">GET</code>
+            </li>
+            <li><span>Goal:</span> Read one specific offer</li>
+            <li>
+              <span>Request parameters: </span>
+              <div id="table-read-one-offer">
+                <table style="width: 100%">
+                  <tr>
+                    <th>Key name</th>
+                    <th>Parameter type</th>
+                    <th>Value type</th>
+                    <th>Value example</th>
+                  </tr>
+                  <tr>
+                    <td>id</td>
+                    <td>body</td>
+                    <td><em>MongoDB</em> ObjectId of the offer you want to update</td>
+                    <td>6097d297358ed95c0cc17dc1</td>
+                  </tr>
+                </table>
+              </div>
+              <p class="para-nb">NB:</p>
+            <ul class="ul-nb">
+              <li>
+                If you don't specify an <code class="higlight-style-nb">id</code>, all the offers will be send back
+              </li>
+            </ul>
+            </li>
+            <li>
+              <span
+                >Request example with
+                <a href="https://www.postman.com/" target="_blank">Postman</a>:
+              </span>
+              <br />
+              <img
+                src="./assets/img/example-request-read-offer.png"
+                alt="read one offer route"
+                class="request-read-one-offer-img"
+              />
+            </li>
+            <li>
+              <span>Response example:</span>
+              <img src="./assets/img/code-read-one-offer.png" alt="response json read one offer" class="response-read-one-offer-img">
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <div>
+       <p>Rémi DERONZIER &#169 2021 - Tous droits réservés</p>
+      </div>
+    </footer>
+  </body>
+</html>
