@@ -33,14 +33,16 @@ router.post("/user/signup", async (req, res) => {
       hash: hash,
       salt: salt,
     });
-    const pictureUploaded = await cloudinary.uploader.upload(
-      req.files.picture.path,
-      {
-        folder: `/vinted/users/`,
-        public_id: newUser._id,
-      }
-    );
-    newUser.account.avatar = pictureUploaded;
+    if (Object.keys(req.files).length !== 0) {
+      const pictureUploaded = await cloudinary.uploader.upload(
+        req.files.picture.path,
+        {
+          folder: `/vinted/users/`,
+          public_id: newUser._id,
+        }
+      );
+      newUser.account.avatar = pictureUploaded;
+    }
     await newUser.save();
     const resValue = {
       _id: newUser._id,
