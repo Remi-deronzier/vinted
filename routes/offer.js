@@ -202,10 +202,9 @@ router.get("/offers", async (req, res) => {
     }
     const offers = await Offer.find(filter)
       .sort(sortFilter)
-      .limit(limit)
+      .limit(Number(limit))
       .skip((Number(page) - 1) * limit)
       .populate("owner", "account");
-    // .select("product_name product_price");
     const count = await Offer.countDocuments(filter);
     res.status(200).json({
       count: count,
