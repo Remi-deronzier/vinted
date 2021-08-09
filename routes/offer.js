@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const cloudinary = require("cloudinary").v2;
+const stripe = require("stripe")(process.env.STRIPE_API_SECRET);
 
 const Offer = require("../models/Offer");
 const isAuthenticated = require("../middlewares/isAuthenticated");
@@ -239,6 +240,25 @@ router.get("/offer", async (req, res) => {
   try {
     const offer = await Offer.find().populate("owner", "account");
     res.status(200).json(offer);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+// Payment
+
+router.post("/pay", async (req, res) => {
+  console.log("route: /pay");
+  console.log(req.fields);
+  try {
+    const { stripeToken, amount, description } = req.fields;
+    const response = await stripe.charges.create({
+      amount: Number(amount),
+      currency: "eur",
+      description: description,
+      source: stripeToken,
+    });
+    res.status(200).json(response);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
