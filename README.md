@@ -10,28 +10,28 @@ Before you begin, ensure you have met the following requirements:
 
 *Option : you can install [Postman](https://www.postman.com/) to easily make requests.*
 
-## Installing Vinted API exercise
+## Installing Vinted API
 
-To install Vinted API exercise, follow these steps:
+To install Vinted API, follow these steps:
 1. Download the code
 ![download-code](https://user-images.githubusercontent.com/49198371/119229498-a6624780-bb18-11eb-82ba-48008a112c83.png)
 2. Install all the npm packages needed typing the following install command in a terminal (make sure you are in the good folder):
-```js
+```
 npm i
 ```
 3. Create a `.env` file at the root of the project and store the following environment variables:
-```js
+```
 CLOUDINARY_NAME = <your-cloudinary-name>
 CLOUDINARY_API_KEY = <your-cloudinary-api-key>
 CLOUDINARY_API_SECRET = <your-cloudinary-api-secret>
 MONGODB_URI = <your-mongodb-uri>
 PORT = <the-listening-port-of-your-server>
 ```
-## Using Vinted API exercise
+## Using Vinted API
 
-To use Vinted API exercise, follow these steps:
+To use Vinted API, follow these steps:
 1. Start your server typing the following command in a terminal (make sure you are in the good folder):
-```js
+```
 npx nodemon index.js
 ```
 If everything works correctly, you should see this:
