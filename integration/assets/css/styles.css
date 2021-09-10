@@ -152,13 +152,14 @@ header img {
   border: 5px solid white;
 }
 
-.h2-presentation {
+.h1-presentation {
   margin-top: 100px;
   text-align: center;
   text-transform: uppercase;
 }
 
 .introduction {
+  padding-bottom: 40px;
   border-bottom: 4px solid #111111;
 }
 
@@ -174,7 +175,7 @@ main p span {
 
 /* title h2 */
 .route {
-  margin-top: 75px;
+  margin-top: 50px;
 }
 
 /* general settings for route details */
