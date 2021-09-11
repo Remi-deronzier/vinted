@@ -1,6 +1,6 @@
 # Vinted API
 
-Vinted API is a miniature-scale reproduction of the Vinted API that allows users to : create an account, login to this account, create an offer, update this offer (including uploading pictures), filter the offers and delete an offer.
+Vinted API is a miniature-scale reproduction of the Vinted API to make my [Vinted replica work](https://eloquent-hodgkin-fdeea0.netlify.app/). This API allows users to : create an account, log to this account, create an offer, update this offer (including uploading pictures), filter the offers and delete an offer.
 
 Frontend project is here: 👉 [Frontend](https://github.com/Remi-deronzier/vinted-frontend)
 
