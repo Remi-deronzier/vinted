@@ -29,10 +29,6 @@ CLOUDINARY_API_SECRET = <your-cloudinary-api-secret>
 MONGODB_URI = <your-mongodb-uri>
 PORT = <the-listening-port-of-your-server>
 ```
-4. When installation is complete, run the project:
-```
-npx nodemon index.js
-```
 
 
 ## Using Vinted API
